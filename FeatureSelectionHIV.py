@@ -11,6 +11,7 @@ index = 1 #start at 1 because easier to find in excel sheet
 # read by default 1st sheet of an excel file
 dataframe1 = pd.read_excel("PutPathToExcelSheetHere", "PutExcelSheetNameHere")
 df = dataframe1.values
+# HIV+ = 0, Black = 15, COVID Finance = 129
 X = delete(df, 0, axis=1) #Drop The column we are looking to target
 Y = df[:,0] #Set Y equal to column we are targeting. This and the above line of code allow for the RFE feature selection
 print(X)
