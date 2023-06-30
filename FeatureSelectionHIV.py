@@ -5,21 +5,21 @@ from numpy import delete
  
 
 features = []
-X = []
-Y = []
+Data = []
+TargetFeature = []
 index = 1 #start at 1 because easier to find in excel sheet
 # read by default 1st sheet of an excel file
 dataframe1 = pd.read_excel("PutPathToExcelSheetHere", "PutExcelSheetNameHere")
 df = dataframe1.values
 # HIV+ = 0, Black = 15, COVID Finance = 129
-X = delete(df, 0, axis=1) #Drop The column we are looking to target
-Y = df[:,0] #Set Y equal to column we are targeting. This and the above line of code allow for the RFE feature selection
-print(X)
-print(Y)
+Data = delete(df, 0, axis=1) #Drop The column we are looking to target
+TargetFeature = df[:,0] #Set Y equal to column we are targeting. This and the above line of code allow for the RFE feature selection
+# print(Data)
+# print(TargetFeature)
 
 model = LogisticRegression(solver='lbfgs') # Use linear regression as model to do feature selection. It will then be fed into KNN
 rfe = RFE(model, n_features_to_select=30) #Create RFE
-fit2 = rfe.fit(X, Y) #Fit RFE
+fit2 = rfe.fit(Data, TargetFeature) #Fit RFE
 print("Num Features: %d" % fit2.n_features_) #Print information about the fitting
 print("Selected Features: %s" % fit2.support_)
 print("Feature Ranking: %s" % fit2.ranking_)
