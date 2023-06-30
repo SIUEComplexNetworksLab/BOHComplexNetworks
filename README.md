@@ -16,7 +16,7 @@ First, open the file titled "FeatureSelection.py". This file contains all code r
 
 ```HIV+ = 0, Black = 15, COVID = 129```
 
-Those are the column number (-1) of the target attributes in the excel sheet. The next two variables, X and Y will need to know these numbers. Use the number that corresponds to the feature you are targeting and input it where a number appears in the code. Once that is done all you need to do is run the code!
+Those are the column number (-1) of the target attributes in the excel sheet. The next two variables, Data and TargetAttribute will need to know these numbers. Use the number that corresponds to the feature you are targeting and input it where a number appears in the code. Once that is done all you need to do is run the code!
 
 The code will output an array that contains the column numbers of the 30 most important features. Go to your excel sheet and delete the target attribute column. Next using the COLUMN function in excel figure out what the number of each column is. Finally, remove all columns that are not the 30 best features. 
 
